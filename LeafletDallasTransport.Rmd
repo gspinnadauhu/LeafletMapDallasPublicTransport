@@ -8,12 +8,13 @@ output: html_document
 This map shows the public transport stops in the Dallas Area Rapid Transit system.
 The data were downloaded on May 10th, 2017 from http://www.dart.org/transitdata/latest/google_transit.zip
 
+
 ```{r}
 dir.create("./transitdata")
 DART<-"http://www.dart.org/transitdata/latest/google_transit.zip"
 download.file(DART,destfile = "./transitdata/google_transit.zip")
 unzip(zipfile="./transitdata/google_transit.zip",files="stops.txt",exdir="./transitdata",overwrite=TRUE)
-
+stops<-read.table("./transitdata/stops.txt",sep=",",header=TRUE)
 
 
 ```
